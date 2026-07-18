@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071426">
+  <meta name="description" content="Amarelinha Literária e Jogo da Memória com dez obras da literatura infantojuvenil.">
+  <title>Amarelinha Literária — Dez obras, dez histórias</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="background" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ==================================================
+         TELA INICIAL
+    =================================================== -->
+
+    <section id="startScreen" class="screen start-screen">
+
+      <div class="start-shell">
+
+        <header class="start-heading">
+
+          <p class="eyebrow">
+            JOGOS EDUCATIVOS DE LITERATURA
+          </p>
+
+          <h1>
+            AMARELINHA
+            <span>LITERÁRIA</span>
+          </h1>
+
+          <p class="subtitle">
+            Dez obras, dez histórias, vinte perguntas e dois modos de aprender.
+          </p>
+
+        </header>
+
+
+        <div class="start-intro">
+
+          <p>
+            Escolha entre o percurso inspirado na amarelinha e o jogo da
+            memória com vinte cartas. As duas experiências utilizam as
+            mesmas dez obras, mas apresentam desafios e significados
+            diferentes.
+          </p>
+
+        </div>
+
+
+        <section class="gallery-section">
+
+          <div class="section-title">
+
+            <h2>
+              AS DEZ OBRAS
+            </h2>
+
+            <span>
+              imagens ímpares: img01 até img19
+            </span>
+
+          </div>
+
+
+          <div
+            id="homeGallery"
+            class="home-gallery"
+          ></div>
+
+        </section>
+
+
+        <div class="start-actions">
+
+          <button
+            id="startChallengeButton"
+            class="button primary"
+            type="button"
+          >
+            INICIAR DESAFIO
+          </button>
+
+
+          <button
+            id="openMemoryButton"
+            class="button memory-button"
+            type="button"
+          >
+            JOGO DA MEMÓRIA
+          </button>
+
+
+          <button
+            id="openWorksButton"
+            class="button light"
+            type="button"
+          >
+            CONHECER AS OBRAS
+          </button>
+
+
+          <button
+            id="openRulesButton"
+            class="button outline"
+            type="button"
+          >
+            REGRAS DO JOGO
+          </button>
+
+
+          <button
+            id="openResourcesButton"
+            class="button saber-button"
+            type="button"
+          >
+            QUERO SABER +
+          </button>
+
+        </div>
+
+
+        <div
+          class="loading-box"
+          aria-live="polite"
+        >
+
+          <div>
+
+            <span id="loadingMessage">
+              Carregando imagens sem bloquear os botões...
+            </span>
+
+            <strong id="loadingPercent">
+              0%
+            </strong>
+
+          </div>
+
+
+          <div class="track">
+
+            <span id="loadingBar"></span>
+
+          </div>
+
+
+          <p id="loadingDetails">
+            O jogo já pode ser acessado.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         CONHECER AS OBRAS
+    =================================================== -->
+
+    <section
+      id="worksScreen"
+      class="screen inner"
+      hidden
+    >
+
+      <header class="topbar">
+
+        <div>
+
+          <p class="eyebrow">
+            LEITURA E DESCOBERTA
+          </p>
+
+          <h2>
+            CONHECER AS OBRAS
+          </h2>
+
+          <p>
+            Explore as dez histórias antes de iniciar uma das experiências.
+          </p>
+
+        </div>
+
+
+        <nav>
+
+          <button
+            id="backWorksButton"
+            class="button outline"
+            type="button"
+          >
+            VOLTAR
+          </button>
+
+
+          <button
+            id="homeWorksButton"
+            class="button light"
+            type="button"
+          >
+            TELA INICIAL
+          </button>
+
+        </nav>
+
+      </header>
+
+
+      <div
+        id="worksList"
+        class="scroll-list"
+      ></div>
+
+    </section>
+
+
+    <!-- ==================================================
+         QUERO SABER +
+    =================================================== -->
+
+    <section
+      id="resourcesScreen"
+      class="screen inner resources-screen"
+      hidden
+    >
+
+      <header class="topbar resources-topbar">
+
+        <div>
+
+          <p class="eyebrow">
+            BIBLIOTECA DIGITAL
+          </p>
+
+          <h2>
+            PARA CONHECER MAIS SOBRE AS OBRAS
+          </h2>
+
+          <p>
+            Links das obras para leitura em PDF. Selecione um título
+            para abrir o material em uma nova guia.
+          </p>
+
+        </div>
+
+
+        <nav>
+
+          <button
+            id="backResourcesButton"
+            class="button outline"
+            type="button"
+          >
+            VOLTAR
+          </button>
+
+
+          <button
+            id="homeResourcesButton"
+            class="button light"
+            type="button"
+          >
+            TELA INICIAL
+          </button>
+
+        </nav>
+
+      </header>
+
+
+      <section class="resources-hero">
+
+        <div
+          class="resources-hero-icon"
+          aria-hidden="true"
+        >
+          ✦
+        </div>
+
+
+        <div>
+
+          <p class="eyebrow">
+            LEITURA NO PDF
+          </p>
+
+          <h3>
+            Dez histórias para continuar a jornada
+          </h3>
+
+          <p>
+            Os cartões abaixo são criados pelo JavaScript. Cada botão
+            abre o link correspondente no Google Drive sem fechar o jogo.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <div
+        id="resourcesList"
+        class="resources-grid"
+      ></div>
+
+    </section>
+
+
+    <!-- ==================================================
+         REGRAS
+    =================================================== -->
+
+    <section
+      id="rulesScreen"
+      class="screen inner"
+      hidden
+    >
+
+      <header class="topbar">
+
+        <div>
+
+          <p class="eyebrow">
+            COMO JOGAR
+          </p>
+
+          <h2>
+            REGRAS DO JOGO
+          </h2>
+
+          <p>
+            Conheça as regras das duas experiências.
+          </p>
+
+        </div>
+
+
+        <nav>
+
+          <button
+            id="backRulesButton"
+            class="button outline"
+            type="button"
+          >
+            VOLTAR
+          </button>
+
+
+          <button
+            id="homeRulesButton"
+            class="button light"
+            type="button"
+          >
+            TELA INICIAL
+          </button>
+
+        </nav>
+
+      </header>
+
+
+      <div class="rules-grid">
+
+        <article class="rule wide">
+
+          <b>A</b>
+
+          <div>
+
+            <h3>
+              Amarelinha Literária
+            </h3>
+
+            <p>
+              Toque na casa ativa, escolha A ou B e conclua dez desafios
+              antes de utilizar as vinte perguntas.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="rule">
+
+          <b>1</b>
+
+          <div>
+
+            <h3>
+              Casa ativa
+            </h3>
+
+            <p>
+              A primeira casa abre a pergunta em tela inteira e inicia
+              o cronômetro.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="rule">
+
+          <b>2</b>
+
+          <div>
+
+            <h3>
+              Acerto
+            </h3>
+
+            <p>
+              A imagem da obra aparece, a alternativa escolhida fica verde
+              e a próxima casa é liberada.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="rule">
+
+          <b>3</b>
+
+          <div>
+
+            <h3>
+              Erro
+            </h3>
+
+            <p>
+              A mensagem TENTE NOVAMENTE aparece e uma nova pergunta
+              será usada no mesmo desafio.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="rule">
+
+          <b>4</b>
+
+          <div>
+
+            <h3>
+              Fim
+            </h3>
+
+            <p>
+              O percurso termina com dez acertos ou quando as vinte
+              perguntas forem utilizadas.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="rule wide memory-rule">
+
+          <b>M</b>
+
+          <div>
+
+            <h3>
+              Jogo da Memória
+            </h3>
+
+            <p>
+              Encontre dez pares. A face fechada usa a imagem capa.
+              Os pares são img01 com img02, img03 com img04 e assim
+              sucessivamente.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="rule">
+
+          <b>5</b>
+
+          <div>
+
+            <h3>
+              Duas cartas
+            </h3>
+
+            <p>
+              Abra duas cartas. Imagens iguais permanecem abertas;
+              imagens diferentes fecham automaticamente.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="rule">
+
+          <b>6</b>
+
+          <div>
+
+            <h3>
+              Significados
+            </h3>
+
+            <p>
+              O botão ACESSAR SIGNIFICADO é liberado após os dez
+              pares serem encontrados.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         AMARELINHA LITERÁRIA
+    =================================================== -->
+
+    <section
+      id="quizScreen"
+      class="screen inner"
+      hidden
+    >
+
+      <header class="topbar compact">
+
+        <div>
+
+          <p class="eyebrow">
+            AMARELINHA LITERÁRIA
+          </p>
+
+          <h2>
+            UMA ETAPA, DEZ DESAFIOS
+          </h2>
+
+          <p id="quizMessage">
+            Toque na casa ativa para abrir a primeira pergunta.
+          </p>
+
+        </div>
+
+
+        <nav>
+
+          <button
+            id="backQuizButton"
+            class="button outline"
+            type="button"
+          >
+            VOLTAR
+          </button>
+
+
+          <button
+            id="homeQuizButton"
+            class="button light"
+            type="button"
+          >
+            TELA INICIAL
+          </button>
+
+        </nav>
+
+      </header>
+
+
+      <section class="quiz-status">
+
+        <article>
+
+          <span>
+            Tempo
+          </span>
+
+          <strong id="quizTime">
+            00:00
+          </strong>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            Acertos
+          </span>
+
+          <strong id="quizHits">
+            0/10
+          </strong>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            Erros
+          </span>
+
+          <strong id="quizErrors">
+            0
+          </strong>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            Utilizadas
+          </span>
+
+          <strong id="quizUsed">
+            0/20
+          </strong>
+
+        </article>
+
+
+        <article class="status-progress">
+
+          <span>
+            Progresso
+          </span>
+
+          <div class="track">
+
+            <span id="quizProgress"></span>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <div
+        id="hopscotchBoard"
+        class="hopscotch"
+      ></div>
+
+    </section>
+
+
+    <!-- ==================================================
+         RESULTADO DA AMARELINHA
+    =================================================== -->
+
+    <section
+      id="quizFinalScreen"
+      class="screen inner"
+      hidden
+    >
+
+      <header class="topbar">
+
+        <div>
+
+          <p
+            id="quizFinalKicker"
+            class="eyebrow"
+          >
+            PERCURSO CONCLUÍDO
+          </p>
+
+          <h2 id="quizFinalTitle">
+            CHEGADA ALCANÇADA!
+          </h2>
+
+          <p id="quizFinalMessage"></p>
+
+        </div>
+
+
+        <nav>
+
+          <button
+            id="backQuizFinalButton"
+            class="button outline"
+            type="button"
+          >
+            VOLTAR
+          </button>
+
+
+          <button
+            id="homeQuizFinalButton"
+            class="button light"
+            type="button"
+          >
+            TELA INICIAL
+          </button>
+
+        </nav>
+
+      </header>
+
+
+      <div class="final-card">
+
+        <div class="final-icon">
+          ★
+        </div>
+
+
+        <div class="final-stats">
+
+          <article>
+
+            <span>
+              Tempo
+            </span>
+
+            <strong id="quizFinalTime">
+              00:00
+            </strong>
+
+          </article>
+
+
+          <article>
+
+            <span>
+              Acertos
+            </span>
+
+            <strong id="quizFinalHits">
+              0
+            </strong>
+
+          </article>
+
+
+          <article>
+
+            <span>
+              Erros
+            </span>
+
+            <strong id="quizFinalErrors">
+              0
+            </strong>
+
+          </article>
+
+
+          <article>
+
+            <span>
+              Perguntas
+            </span>
+
+            <strong id="quizFinalUsed">
+              0
+            </strong>
+
+          </article>
+
+        </div>
+
+
+        <p
+          id="quizEvaluation"
+          class="evaluation"
+        ></p>
+
+
+        <div class="final-actions">
+
+          <button
+            id="openQuizMeaningsButton"
+            class="button primary"
+            type="button"
+          >
+            ACESSAR SIGNIFICADOS
+          </button>
+
+
+          <button
+            id="playQuizAgainButton"
+            class="button light"
+            type="button"
+          >
+            JOGAR NOVAMENTE
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SIGNIFICADOS DAS QUESTÕES
+    =================================================== -->
+
+    <section
+      id="quizMeaningsScreen"
+      class="screen inner"
+      hidden
+    >
+
+      <header class="topbar">
+
+        <div>
+
+          <p class="eyebrow">
+            REVISÃO DA APRENDIZAGEM
+          </p>
+
+          <h2>
+            SIGNIFICADOS DAS QUESTÕES
+          </h2>
+
+          <p class="large-intro">
+            Veja cada pergunta, somente a resposta correta
+            e o objetivo pedagógico.
+          </p>
+
+        </div>
+
+
+        <nav>
+
+          <button
+            id="backQuizMeaningsButton"
+            class="button outline"
+            type="button"
+          >
+            VOLTAR
+          </button>
+
+
+          <button
+            id="homeQuizMeaningsButton"
+            class="button light"
+            type="button"
+          >
+            TELA INICIAL
+          </button>
+
+        </nav>
+
+      </header>
+
+
+      <div
+        id="quizMeaningsList"
+        class="meaning-grid"
+      ></div>
+
+    </section>
+
+
+    <!-- ==================================================
+         JOGO DA MEMÓRIA
+    =================================================== -->
+
+    <section
+      id="memoryScreen"
+      class="screen inner memory-screen"
+      hidden
+    >
+
+      <header class="topbar compact memory-header">
+
+        <div>
+
+          <p class="eyebrow">
+            LITERATURA, MEMÓRIA E REFLEXÃO
+          </p>
+
+          <h2>
+            JOGO DA MEMÓRIA
+          </h2>
+
+          <p id="memoryMessage">
+            Encontre os dez pares formados por imagens iguais.
+          </p>
+
+        </div>
+
+
+        <nav>
+
+          <button
+            id="memoryInfoButton"
+            class="button info-button"
+            type="button"
+            aria-expanded="false"
+          >
+            INFORMAÇÕES
+          </button>
+
+
+          <button
+            id="restartMemoryButton"
+            class="button outline"
+            type="button"
+          >
+            REINICIAR
+          </button>
+
+
+          <button
+            id="backMemoryButton"
+            class="button outline"
+            type="button"
+          >
+            VOLTAR
+          </button>
+
+
+          <button
+            id="homeMemoryButton"
+            class="button light"
+            type="button"
+          >
+            TELA INICIAL
+          </button>
+
+        </nav>
+
+      </header>
+
+
+      <div
+        id="memoryInfoPanel"
+        class="info-overlay"
+        hidden
+      >
+
+        <div class="info-card">
+
+          <div class="info-heading">
+
+            <div>
+
+              <p class="eyebrow">
+                ACOMPANHAMENTO DA PARTIDA
+              </p>
+
+              <h3>
+                INFORMAÇÕES
+              </h3>
+
+            </div>
+
+
+            <button
+              id="closeMemoryInfoButton"
+              class="button outline"
+              type="button"
+            >
+              FECHAR
+            </button>
+
+          </div>
+
+
+          <section class="memory-status">
+
+            <article>
+
+              <span>
+                Jogadas
+              </span>
+
+              <strong id="memoryMoves">
+                0
+              </strong>
+
+            </article>
+
+
+            <article>
+
+              <span>
+                Tempo
+              </span>
+
+              <strong id="memoryTime">
+                00:00
+              </strong>
+
+            </article>
+
+
+            <article>
+
+              <span>
+                Pares
+              </span>
+
+              <strong id="memoryPairs">
+                0/10
+              </strong>
+
+            </article>
+
+
+            <article class="status-progress">
+
+              <span>
+                Progresso
+              </span>
+
+              <div class="track">
+
+                <span id="memoryProgress"></span>
+
+              </div>
+
+            </article>
+
+          </section>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="memoryBoard"
+        class="memory-board"
+      ></div>
+
+
+      <section
+        id="memoryFinish"
+        class="memory-finish"
+        hidden
+      >
+
+        <div>
+
+          <p class="eyebrow">
+            EXPERIÊNCIA CONCLUÍDA
+          </p>
+
+          <h3>
+            Todos os pares foram encontrados!
+          </h3>
+
+          <p id="memorySummary"></p>
+
+        </div>
+
+
+        <div>
+
+          <button
+            id="openMemoryMeaningsButton"
+            class="button primary"
+            type="button"
+            disabled
+          >
+            ACESSAR SIGNIFICADO
+          </button>
+
+
+          <button
+            id="playMemoryAgainButton"
+            class="button light"
+            type="button"
+          >
+            JOGAR NOVAMENTE
+          </button>
+
+        </div>
+
+      </section>
+
+    </section>
+
+
+    <!-- ==================================================
+         SIGNIFICADOS DO JOGO DA MEMÓRIA
+    =================================================== -->
+
+    <section
+      id="memoryMeaningsScreen"
+      class="screen inner"
+      hidden
+    >
+
+      <header class="topbar">
+
+        <div>
+
+          <p class="eyebrow">
+            LITERATURA E FILOSOFIA
+          </p>
+
+          <h2>
+            SIGNIFICADOS DOS PARES
+          </h2>
+
+          <p>
+            Reflexões literárias e filosóficas independentes
+            das perguntas da amarelinha.
+          </p>
+
+        </div>
+
+
+        <nav>
+
+          <button
+            id="backMemoryMeaningsButton"
+            class="button outline"
+            type="button"
+          >
+            VOLTAR
+          </button>
+
+
+          <button
+            id="homeMemoryMeaningsButton"
+            class="button light"
+            type="button"
+          >
+            TELA INICIAL
+          </button>
+
+        </nav>
+
+      </header>
+
+
+      <div
+        id="memoryMeaningsList"
+        class="memory-meanings-grid"
+      ></div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==================================================
+       JANELA DA PERGUNTA
+  =================================================== -->
+
+  <div
+    id="questionModal"
+    class="question-modal"
+    role="dialog"
+    aria-modal="true"
+    hidden
+  >
+
+    <div class="question-shell">
+
+      <section
+        id="questionView"
+        class="question-view"
+      >
+
+        <p
+          id="questionStep"
+          class="eyebrow"
+        >
+          DESAFIO 1 DE 10
+        </p>
+
+        <h2>
+          PERGUNTA
+        </h2>
+
+        <p
+          id="questionText"
+          class="question-text"
+        ></p>
+
+
+        <div class="answers">
+
+          <button
+            id="answerAButton"
+            class="answer"
+            type="button"
+          >
+
+            <b>A</b>
+
+            <span id="answerAText"></span>
+
+          </button>
+
+
+          <button
+            id="answerBButton"
+            class="answer"
+            type="button"
+          >
+
+            <b>B</b>
+
+            <span id="answerBText"></span>
+
+          </button>
+
+        </div>
+
+
+        <p class="hint">
+          A = quadrinho da esquerda · B = quadrinho da direita
+        </p>
+
+      </section>
+
+
+      <section
+        id="feedbackView"
+        class="feedback-view"
+        hidden
+      >
+
+        <p
+          id="feedbackKicker"
+          class="eyebrow"
+        >
+          RESPOSTA CORRETA
+        </p>
+
+        <h2 id="feedbackTitle">
+          Muito bem!
+        </h2>
+
+
+        <div
+          id="feedbackImageBox"
+          class="feedback-image"
+        >
+
+          <img
+            id="feedbackImage"
+            alt=""
+          >
+
+        </div>
+
+
+        <h3 id="feedbackWork"></h3>
+
+        <p id="feedbackText"></p>
+
+
+        <div>
+
+          <button
+            id="feedbackContinueButton"
+            class="button primary"
+            type="button"
+          >
+            CONTINUAR
+          </button>
+
+
+          <button
+            id="feedbackHomeButton"
+            class="button outline"
+            type="button"
+          >
+            TELA INICIAL
+          </button>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </div>
+
+
+  <p
+    id="liveRegion"
+    class="sr-only"
+    aria-live="polite"
+  ></p>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
